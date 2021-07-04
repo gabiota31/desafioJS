@@ -1,4 +1,3 @@
-var prueba = document.getElementById("prueba")
 
 var nombre = document.getElementById('nombre')
 var apellido = document.getElementById('apellido')
@@ -24,23 +23,15 @@ var regaloSelect = document.getElementById("regalo-select")
 var sumaTotal = document.getElementById("suma-total")
 var btnCalcular = document.getElementById("calcular")
 
-console.log(btnCalcular)
-
 btnCalcular.addEventListener('click', textSaver)
-prueba.addEventListener('click', aVer)
 //prueba.addEventListener('click', textModifier)
 //paseCompleto.addEventListener('click', textSaver(prueba))  //SI LO PONEMOS ASI CON LA FUNCIÓN CON ARGUMENTO SE EJECUTA LA FUNCION CUANDO SE HABRE LA PAGINA Y NO CUANTO HACEMOS EL EVENTO
 //paseCompleto.addEventListener('click', clicked)
 
-function clicked(){
-    alert('haz hecho click')
-}
 
-function aVer(){
-    console.log("nombre y apellido", nombre.value, apellido.value, typeof(nombre.value))
-}
-
+//función del listener que hace los calculos y pone el resumen y el precio total
 function textSaver(){
+    //calculos
     var cantPaseDia = paseDia.value * 30
     var cantPaseCompleto = paseCompleto.value * 50
     var cantPaseDosDias = paseDosDias.value * 45
@@ -48,12 +39,11 @@ function textSaver(){
     var cantEtiquetas = etiquetas.value * 2
 
     var total =  cantPaseDia + cantPaseCompleto + cantPaseDosDias + cantCamisas + cantEtiquetas
+    
+    //print pago total
     sumaTotal.textContent = '$' + total
 
-    console.log(total)
-    console.log("prueba", cantPaseDosDias)
-    console.log("regalo", regalo.value)
-
+    //parte del resumen
     nombreResumen.textContent = nombre.value
     apellidoResumen.textContent = apellido.value
     boletos.textContent = "Cantidad de boletos:"
@@ -70,112 +60,19 @@ function textSaver(){
         resumenCamisa.textContent = "Camisas: " + camisaEvento.value + " x $10 (+ 7% de descuento) = $" + cantCamisas
     }
     if(cantEtiquetas!= 0){
-        resumenEtiquetas.textContent = "Etiquetas: " + etiquetas.value + " x $2 = " + cantEtiquetas
+        resumenEtiquetas.textContent = "Etiquetas: " + etiquetas.value + " x $2 = $" + cantEtiquetas
     }
-    if(regalo.value = 1){
+    if(regalo.value == 1){
         regaloSelect.textContent = "Regalo: Etiquetas"
     }
-    if(regalo.value = 2){
+    else if(regalo.value == 2){
         regaloSelect.textContent = "Regalo: Pulsera"
     }
-    if(regalo.value = 3){
+    else if(regalo.value == 3){
         regaloSelect.textContent = "Regalo: Plumas"
     }
 
 }
 
-/*
-function textModifier(){
-    nombreResumen.textContent = nombre.value
-    apellidoResumen.textContent = apellido.value
-    resumenPaseDia.textContent = paseDia.value + " x $30 " + paseDia*30
-}*/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-function calculador(){
-    var btnCalcular = document.getElementById('calcular')
-    btnCalcular.addEventListener('click', guardarValorinputs)    
-    for(let i=0 ; i<listaValores.length ; i++) {
-        var suma = 0
-        var numero = parseInt(listaValores[i])
-        suma = suma + numero
-        console.log(suma)
-    }
-    return suma
-}
-
-*/
-/*function calculador(){
-    var btnCalcular = document.getElementById('calcular')
-    btnCalcular.addEventListener('click', guardarValorinputs)    
-    for(let i=0 ; i<listaValores.length ; i++) {
-        var suma = 0
-        if(listaValores[i] != "") {
-            var numero = parseInt(listaValores[i])
-            suma = suma + numero
-            console.log(suma)
-        }
-        else{
-            suma = 0
-            console.log(suma)
-        }
-    }
-    return suma
-}*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-function gurdarValorInput(input, lista){
-    input.style.backgroundColor = 'yellow'
-    lista.push(input.value)
-    console.log(lista)
-}
-*/
